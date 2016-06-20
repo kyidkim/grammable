@@ -23,7 +23,7 @@ class GramsController < ApplicationController
   end
   
   def edit
-    @gram = Gram.find(params[:id])
+    @gram = Gram.find_by_id(params[:id])
     return render_not_found if @gram.blank?
   end
   

@@ -5,8 +5,7 @@ class GramsController < ApplicationController
     @gram = Gram.find_by_id(params[:id])
     return render_not_found if @gram.blank?
     return render_not_found(:forbidden) if @gram.user != current_user
-    
-    @gram.delete
+    @gram.destroy
     redirect_to root_path
   end
   
@@ -58,6 +57,6 @@ class GramsController < ApplicationController
   end
   
   def render_not_found(status=:not_found)
-    render text: "#{status.to_s.titleize} :(", status: :status
+    render text: "#{status.to_s.titleize} :(", status: status
   end
 end

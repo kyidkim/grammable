@@ -7,6 +7,7 @@ require 'spec_helper'
 require 'rspec/rails'
 RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
+  include ActionDispatch::TestProcess
 end
 # Add additional requires below this line. Rails is not loaded until this point!
 
